@@ -1,6 +1,12 @@
 import { test, beforeEach } from "node:test";
 import assert from "node:assert/strict";
-import { createRequest, updateRequest, getRequest, listRequests, _resetStoreForTests } from "../store.js";
+import {
+  createRequest,
+  updateRequest,
+  getRequest,
+  listRequests,
+  _resetStoreForTests,
+} from "../store.js";
 
 beforeEach(() => {
   _resetStoreForTests();

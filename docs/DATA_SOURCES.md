@@ -13,6 +13,7 @@ service's output as a real screening result to anyone.**
 ### 1. Which data source
 
 Common options for a real deployment:
+
 - **OFAC SDN list** (US) — free, but requires you to build/maintain your
   own matching logic (fuzzy name matching is non-trivial).
 - **EU consolidated sanctions list** — similar tradeoffs.
@@ -40,10 +41,11 @@ system, and is worth being explicit about:
 
 **This reference implementation deliberately does not solve this.** A real
 deployment has a few paths, each with different tradeoffs:
-- Require the *anchor* (who already has KYC'd their own customer) to
+
+- Require the _anchor_ (who already has KYC'd their own customer) to
   submit a screening result to this service, rather than having this
   service do primary screening itself — this service becomes an
-  attestation *relay*, not a screener.
+  attestation _relay_, not a screener.
 - Screen only the readily-available on-chain identifier (address,
   transaction pattern) against blockchain-specific risk data (e.g.
   Chainalysis-style address risk scoring) rather than named-entity
@@ -61,11 +63,12 @@ pass in.
 
 Real sanctions/PEP matching produces false positives, sometimes a lot of
 them (common names, transliteration variants). A production system needs:
+
 - A manual review queue for `flagged`/ambiguous results, not just an
   automatic `flagged` attestation.
 - A process for correcting/overturning a wrong `flagged` status — this
   registry's overwrite-on-write design (see the registry's
-  `docs/ARCHITECTURE.md`) supports this technically, but the *process*
+  `docs/ARCHITECTURE.md`) supports this technically, but the _process_
   around who can request/approve a correction isn't defined here.
 
 None of this is implemented in the stub. Treat `stubScreen`'s three-value

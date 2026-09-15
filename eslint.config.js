@@ -2,6 +2,7 @@ import js from "@eslint/js";
 import globals from "globals";
 
 export default [
+  { ignores: ["Soroban-Indexer/**"] },
   js.configs.recommended,
   {
     languageOptions: {

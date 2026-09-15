@@ -4,7 +4,13 @@ import crypto from "node:crypto";
 import express from "express";
 import request from "supertest";
 import { stubScreen } from "../screeningStub.js";
-import { createRequest, updateRequest, getRequest, listRequests, _resetStoreForTests } from "../store.js";
+import {
+  createRequest,
+  updateRequest,
+  getRequest,
+  listRequests,
+  _resetStoreForTests,
+} from "../store.js";
 import { createRegistryClient } from "../registryClient.js";
 
 function buildApp() {
@@ -64,9 +70,7 @@ test("GET /health returns ok", async () => {
 
 test("POST /screen accepts a valid counterparty", async () => {
   const app = buildApp();
-  const res = await request(app)
-    .post("/screen")
-    .send({ counterparty: "GABC1234567890DEF" });
+  const res = await request(app).post("/screen").send({ counterparty: "GABC1234567890DEF" });
 
   assert.equal(res.status, 202);
   assert.equal(res.body.status, "pending");
@@ -88,9 +92,7 @@ test("POST /screen rejects non-string counterparty", async () => {
 
 test("GET /status/:reference returns screening result after POST", async () => {
   const app = buildApp();
-  const screenRes = await request(app)
-    .post("/screen")
-    .send({ counterparty: "GABC1234567890DEF" });
+  const screenRes = await request(app).post("/screen").send({ counterparty: "GABC1234567890DEF" });
   const { referenceId } = screenRes.body;
 
   await new Promise((r) => setTimeout(r, 50));

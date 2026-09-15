@@ -12,11 +12,11 @@ result to the on-chain `attestation-registry` contract.
 
 ## Documentation
 
-| Doc | Covers |
-|---|---|
+| Doc                                            | Covers                                                          |
+| ---------------------------------------------- | --------------------------------------------------------------- |
 | [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) | Request lifecycle, dry-run mode, how this talks to the registry |
-| [`docs/API.md`](docs/API.md) | Every endpoint, request/response shapes |
-| [`docs/DATA_SOURCES.md`](docs/DATA_SOURCES.md) | Exactly what's stubbed and what a real integration needs |
+| [`docs/API.md`](docs/API.md)                   | Every endpoint, request/response shapes                         |
+| [`docs/DATA_SOURCES.md`](docs/DATA_SOURCES.md) | Exactly what's stubbed and what a real integration needs        |
 
 ## Quickstart
 

@@ -16,7 +16,7 @@ test("stubScreen always returns a valid status and marks itself as a stub", () =
 
 test("stubScreen can return different statuses for different inputs", () => {
   const statuses = new Set(
-    ["GADDR1", "GADDR2", "GADDR3", "GADDR4", "GADDR5"].map((addr) => stubScreen(addr).status)
+    ["GADDR1", "GADDR2", "GADDR3", "GADDR4", "GADDR5"].map((addr) => stubScreen(addr).status),
   );
   // Not a strict requirement of the stub, but sanity-checks it isn't
   // constant-folding to a single value for every input.

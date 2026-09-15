@@ -14,14 +14,14 @@ npm install
 
 ## Scripts
 
-| Command | Description |
-|---|---|
-| `npm start` | Start the production server |
-| `npm run dev` | Start with file watching |
-| `npm test` | Run tests |
-| `npm run lint` | Run ESLint |
-| `npm run lint:fix` | Auto-fix lint issues |
-| `npm run format` | Format code with Prettier |
+| Command                | Description                      |
+| ---------------------- | -------------------------------- |
+| `npm start`            | Start the production server      |
+| `npm run dev`          | Start with file watching         |
+| `npm test`             | Run tests                        |
+| `npm run lint`         | Run ESLint                       |
+| `npm run lint:fix`     | Auto-fix lint issues             |
+| `npm run format`       | Format code with Prettier        |
 | `npm run format:check` | Check formatting without writing |
 
 ## Architecture

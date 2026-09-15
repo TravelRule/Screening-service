@@ -86,5 +86,7 @@ app.get("/requests", (req, res) => {
 app.use((_req, res) => res.status(404).json({ error: "not_found" }));
 
 app.listen(PORT, () => {
-  console.log(`[screening-service] listening on port ${PORT} (registry dry-run: ${registryClient.dryRun})`);
+  console.log(
+    `[screening-service] listening on port ${PORT} (registry dry-run: ${registryClient.dryRun})`,
+  );
 });

@@ -30,9 +30,9 @@ let generatedClientModule = null;
 try {
   // Dynamic import so a missing generated client doesn't crash the whole
   // service at boot — see DRY-RUN fallback below.
-  generatedClientModule = await import(
-    "../generated/attestation-registry-client/index.js"
-  ).catch(() => null);
+  generatedClientModule = await import("../generated/attestation-registry-client/index.js").catch(
+    () => null,
+  );
 } catch {
   generatedClientModule = null;
 }
@@ -52,7 +52,7 @@ export function createRegistryClient(env = process.env) {
       "[registryClient] No generated bindings found at " +
         "../generated/attestation-registry-client — running in DRY-RUN mode. " +
         "Attestations will be logged, not written on-chain. See this file's " +
-        "top comment for how to generate real bindings."
+        "top comment for how to generate real bindings.",
     );
   }
 
@@ -70,7 +70,7 @@ export function createRegistryClient(env = process.env) {
       if (dryRun || !issuerKeypair) {
         console.log(
           `[registryClient][DRY RUN] would write attestation: ` +
-            `counterparty=${counterparty} status=${status} referenceId=${referenceId}`
+            `counterparty=${counterparty} status=${status} referenceId=${referenceId}`,
         );
         return { txHash: null, dryRun: true };
       }
@@ -111,7 +111,9 @@ function safeKeypairFromSecret(secret) {
   try {
     return Keypair.fromSecret(secret);
   } catch {
-    console.warn("[registryClient] ISSUER_SECRET_KEY is not a valid secret key — falling back to dry-run.");
+    console.warn(
+      "[registryClient] ISSUER_SECRET_KEY is not a valid secret key — falling back to dry-run.",
+    );
     return null;
   }
 }

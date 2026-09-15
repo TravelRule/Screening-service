@@ -11,21 +11,25 @@ Base URL (local dev): `http://localhost:4100`
 ## `POST /screen`
 
 **Request body:**
+
 ```json
 { "counterparty": "GABC...STELLARADDRESS" }
 ```
 
 **Response (202 Accepted):**
+
 ```json
 { "referenceId": "b3f1...uuid", "status": "pending" }
 ```
 
 Errors:
+
 - `400` if `counterparty` is missing or not a string.
 
 ## `GET /status/:reference`
 
 **Response (200):**
+
 ```json
 {
   "data": {
@@ -49,6 +53,7 @@ a retry queue).
 `docs/ARCHITECTURE.md`), or when the request is still pending.
 
 Errors:
+
 - `404` if `reference` doesn't match any known request.
 
 ## `GET /requests?limit=`
@@ -56,7 +61,7 @@ Errors:
 Recent requests, most recent first. Used by the dashboard.
 
 ```json
-{ "data": [ /* array of the same shape as GET /status/:reference's "data" */ ] }
+{ "data": [/* array of the same shape as GET /status/:reference's "data" */] }
 ```
 
 `limit` defaults to 20, capped at 100.
