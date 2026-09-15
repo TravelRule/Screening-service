@@ -1,0 +1,17 @@
+{
+  "name": "screening-service",
+  "version": "0.1.0",
+  "description": "Off-chain counterparty screening reference service. Writes results to the on-chain attestation registry.",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node --watch src/index.js",
+    "test": "node --test src/__tests__/*.test.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "dotenv": "^16.4.5",
+    "@stellar/stellar-sdk": "^12.3.0"
+  }
+}
