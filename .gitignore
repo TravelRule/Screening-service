@@ -3,3 +3,6 @@ generated/
 .env
 *.log
 .DS_Store
+
+# Untracked sub-project — not part of this repo
+Soroban-Indexer/
